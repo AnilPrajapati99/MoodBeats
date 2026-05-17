@@ -26,6 +26,7 @@ app.use(
   }),
 );
 
+console.log(process.env.FRONTEND_URL);
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Routes
