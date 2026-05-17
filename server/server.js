@@ -5,6 +5,8 @@ dotenv.config();
 
 connectToDb();
 
-app.listen(3000, () => {
+const PORT = process.env.PORT;
+
+app.listen(PORT, () => {
   console.log("server is running..");
 });
