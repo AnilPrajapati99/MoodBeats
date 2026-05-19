@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import emotionIcon from "../../../assets/emotion2.png";
 import music from "../../../assets/music.png";
 import forward from "../../../assets/fast-forward.png";
+import { StepCard, steps } from "../components/StepCard";
 
 
 export default function MainHome() {
@@ -57,16 +58,19 @@ export default function MainHome() {
     
 
       {/* 🔹 HOW IT WORKS */}
-      <section className="steps">
+      <div className="step-card">
         <h2>How It Works</h2>
-
-        <div className="step-list">
-          <div>1️⃣ Open Camera</div>
-          <div>2️⃣ Detect Mood</div>
-          <div>3️⃣ Get Songs</div>
-          <div>4️⃣ Enjoy 🎶</div>
+        <div className="step-div">
+          {steps.map((item,idx)=>{
+            const {step,icon,title,description} = item
+            return (
+              <div className="step-div-container">
+                <StepCard step={step} icon={icon}  title={title} description={description} />
+              </div>
+            )
+          })}
         </div>
-      </section>
+      </div>
 
       {/* 🔹 CTA */}
       <section className="cta">

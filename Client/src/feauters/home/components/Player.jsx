@@ -141,10 +141,10 @@ useEffect(() => {
   }
 
   return (
-    <div className='player-container'>
+    <div >
       <audio ref={audioRef} src={song?.url || songUrl} />
       
-      <div className='player-card'>
+      <div className="player-container">
         {/* Song Poster */}
         <div className='player-poster'>
           <img src={song?.posterUrl} alt='Song Poster' />

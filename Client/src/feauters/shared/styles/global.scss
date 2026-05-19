@@ -30,31 +30,87 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   flex-direction:row;
 }
 
-.main-container{
-  // background-color: #e04343;
-  width: 98%;
-  margin: 0 auto;
-  height: calc(100vh - 110px);
-margin-top: 20px;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-gap:10px;
-margin-bottom: 20px;
+.player-page {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
 
-.left{
+.left {
   width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  // border: 2px solid white;
-  // padding: 20px;
-}
-.right{
-  min-width: calc(300px);
-  // margin-bottom: 20px;
- 
+  justify-content: flex-start;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-shrink: 0;
+    order: 1;          // ← camera sabse upar
+  }
 }
 
+.right {
+  min-width: 300px;
+  height: 100%;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    min-width: unset;
+    width: 100%;
+    flex: 1;           // ← baaki saari height
+    overflow: hidden;
+    order: 2;          // ← playlist middle
+  }
+}
+
+.player-wrapper {
+  // desktop pe show nahi — left ke andar tha pehle
+  display: none;  // desktop pe hide
+  
+  @media (max-width: 768px) {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+    order: 3;          // ← player sabse neeche
+  }
+}
+
+
+@media (min-width: 769px) {
+  .left {
+    justify-content: space-between; 
+  }
+
+  .player-wrapper {
+    display: none !important;
+
+   
+  }
+
+}
+
+.desktop-player {
+  @media (max-width: 768px) {
+    display: none !important;  // mobile pe hide
+  }
+}
+
+.mobile-player {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block !important;  // mobile pe show
+  }
 }

@@ -26,6 +26,7 @@
         font-family: "cartoon" ,sans-serif;
         font-weight: 700;
         letter-spacing: 1.1px;
+        text-wrap: nowrap;
 
         span{
             color: #C53030;
@@ -209,7 +210,7 @@
 }
   div{
         h3 {
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
         letter-spacing: 0.9px;
       }
 
@@ -227,29 +228,36 @@
  
 
   /* 🔹 STEPS */
-  .steps {
+  .step-card {
+      // margin: 20px 0;
     h2 {
-      margin-bottom: 20px;
+      background-color: rgb(243, 140, 43);
+      color: black;
+      padding: 5px 10px;
+      width: fit-content;
+      text-align: center;
+      margin: 20px auto;
     }
 
-    .step-list {
+    .step-div {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-
-      div {
-        background: #1e293b;
-        padding: 15px 20px;
-        border-radius: 8px;
-      }
     }
   }
 
   /* 🔹 CTA */
   .cta {
+    margin: 20px 0;
     h2 {
-      margin-bottom: 15px;
+      font-size: 1.2rem;
+      background-color: rgb(243, 140, 43);
+      color: black;
+      padding: 5px 10px;
+      width: fit-content;
+      text-align: center;
+      margin: 0 auto 10px auto;
     }
 
     button {
@@ -269,7 +277,7 @@
 }
 
 
-// ? Breakpoints
+// ? Breakpoints Responsive
 
 
 // ? Navbar
@@ -366,9 +374,48 @@
     margin-bottom: 20px;
 
     section {
-    padding: 10px 10px;
+    padding: 0px 10px;
     text-align: center;
   }
+
+.step-card {
+  width: 90%;
+  margin: 0 auto;
+  // overflow: hidden; 
+  
+  .step-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    // overflow-y: visible;   
+    flex-wrap: nowrap;
+    padding-bottom: 8px;  
+    -webkit-overflow-scrolling: touch;
+
+    // Scrollbar styles
+    &::-webkit-scrollbar {
+      height: 6px;
+      display: block;      // ← explicitly show karo
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #1a2236;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #4a9eff;
+      border-radius: 10px;
+    }
+  }
+
+  .step-div-container {
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+}
 
   .hero{
     height: auto;
